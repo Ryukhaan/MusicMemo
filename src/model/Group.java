@@ -2,14 +2,18 @@ package model;
 
 import java.util.ArrayList;
 
-public class Groupe {
+public class Group {
+
+  private static ArrayList<Group> allGroups = null;
+
+
   private String name;
   private Nationality nationality;
-  private ArrayList<Genre> genre;
+  private ArrayList<Style> genre;
   private ArrayList<String> music;
   private Period date;
 
-  public Groupe() {}
+  public Group() {}
 
   public String getName() {
     return this.name;
@@ -38,7 +42,7 @@ public class Groupe {
     this.nationality = nation;
   }
 
-  public void addGenre(Genre genre) {
+  public void addGenre(Style style) {
     this.genre.add(genre);
   }
   public void addMusic(String music) {
@@ -47,7 +51,7 @@ public class Groupe {
   public void setPeriod(Period date) {
     this.date = date;
   }
-  public void removeGenre(Genre genre) {
+  public void removeGenre(Style style) {
     this.genre.remove(genre);
   }
   public void removeMusic(String music) {

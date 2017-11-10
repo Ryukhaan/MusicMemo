@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class Nationality {
+public class Nationality implements Comparable<Nationality> {
   private static ArrayList<Nationality> allNationalities = null;
 
   private String nationality;
@@ -30,7 +30,7 @@ public class Nationality {
   public void setNationatlity(String nation) {
     this.nationality = nation;
   }
-  
+
   @Override
   public boolean equals(Object object) {
     if (this == object)
@@ -41,6 +41,16 @@ public class Nationality {
       return false;
     Nationality other = (Nationality) object;
     return this.nationality == other.getNationality();
+  }
+
+  @Override
+  public int hashCode() {
+    return this.nationality.hashCode();
+  }
+
+  @Override
+  public int compareTo(Nationality other) {
+    return this.nationality.compareTo(other.getNationality());
   }
 
   public String toString() {

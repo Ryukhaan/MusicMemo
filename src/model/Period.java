@@ -1,6 +1,6 @@
 package model;
 
-public class Period {
+public class Period implements Comparable<Period> {
   private int start;
   private int end;
 
@@ -67,5 +67,17 @@ public class Period {
       return false;
     Period other = (Period) object;
     return (this.start == other.getStart() && this.end == other.getEnd());
+  }
+
+  @Override
+  public int hashCode() {
+    return (17 * this.start) + (37 * this.end) + 1;
+  }
+
+  @Override
+  public int compareTo(Period other) {
+    if (this.start == other.getStart())
+      return 0;
+    return this.start > other.getStart() ? 1 : -1;
   }
 }
